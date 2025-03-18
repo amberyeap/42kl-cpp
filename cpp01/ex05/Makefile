@@ -5,17 +5,17 @@
 #                                                     +:+ +:+         +:+      #
 #    By: ayeap <ayeap@student.42kl.edu.my>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2025/03/04 13:17:44 by ayeap             #+#    #+#              #
-#    Updated: 2025/03/04 13:17:44 by ayeap            ###   ########.fr        #
+#    Created: 2025/03/04 15:33:28 by ayeap             #+#    #+#              #
+#    Updated: 2025/03/04 15:33:28 by ayeap            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = sed
+NAME = harl
 
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 
-SRC = main.cpp
+SRC = main.cpp Harl.cpp
 OBJ = $(SRC:.cpp=.o)
 
 all: $(NAME)
@@ -31,7 +31,6 @@ clean:
 
 fclean: clean
 	rm -rf $(NAME)
-	rm -rf *.replace
 
 re: fclean all
 
