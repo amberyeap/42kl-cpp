@@ -13,10 +13,13 @@
 #ifndef CURE_HPP
 # define CURE_HPP
 
-# include "Materia.hpp"
+# include "AMateria.hpp"
 # include "Character.hpp"
 
 class Cure : public AMateria {
+	private:
+		std::string type;
+
 	public:
 		Cure();
 		Cure(const Cure& other); // copy constructor - to be used for clone()?
@@ -24,8 +27,8 @@ class Cure : public AMateria {
 
 		Cure& operator=(const Cure& other);
 
-		AMateria* clone() const;
-		void use(ICharacter& target);
+		virtual AMateria* clone() const;
+		virtual void use(ICharacter& target);
 };
 
 #endif

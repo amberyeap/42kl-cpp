@@ -13,12 +13,13 @@
 #ifndef CHARACTER_HPP
 # define CHARACTER_HPP
 
-#include "Materia.hpp"
+#include "Ice.hpp"
+#include "Cure.hpp"
 
 // pure abstract class - only contains pure virtual functions
 class ICharacter {
 	public:
-		virtual ~ICharacter() {} // virtual destructor
+		virtual ~ICharacter(); // virtual destructor
 
 		// pure virtual functions - to be overridden in each of the derived classes
 		virtual std::string const & getName() const = 0;
@@ -31,7 +32,7 @@ class Character: public ICharacter {
 	protected:
 		std::string name;
 		AMateria* inventory[4];
-		static int	inventory_count;
+		int	inventory_count;
 		AMateria* floor[50];
 
 	public:
@@ -44,6 +45,7 @@ class Character: public ICharacter {
 		// bool operator==(const Character& other) const;
 
 		std::string const& getName() const;
+
 		void equip(AMateria* m);
 		void unequip(int idx);
 		void use(int idx, ICharacter& target);

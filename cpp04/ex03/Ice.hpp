@@ -13,10 +13,13 @@
 #ifndef ICE_HPP
 # define ICE_HPP
 
-# include "Materia.hpp"
+# include "AMateria.hpp"
 # include "Character.hpp"
 
 class Ice : public AMateria {
+	private:
+		std::string type;
+
 	public:
 		Ice();
 		Ice(const Ice& other);
@@ -24,8 +27,8 @@ class Ice : public AMateria {
 
 		Ice& operator=(const Ice& other);
 
-		AMateria* clone() const; 
-		void use(ICharacter& target);
+		virtual AMateria* clone() const; 
+		virtual void use(ICharacter& target);
 };
 
 #endif

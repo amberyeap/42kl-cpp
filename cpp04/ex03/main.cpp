@@ -10,32 +10,68 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Materia.hpp"
+#include "AMateria.hpp"
 #include "Character.hpp"
 #include "Ice.hpp"
 #include "Cure.hpp"
+#include "MateriaSource.hpp"
 
 int main() {
-	IMateriaSource* src = new MateriaSource();
+	IMateriaSource	*src = new MateriaSource();
+	AMateria		*tmp;
+	ICharacter		*bob = new Character("Bob");
+
+	src->learnMateria(new Ice());
+	src->learnMateria(new Cure());
 	src->learnMateria(new Ice());
 	src->learnMateria(new Cure());
 
-	ICharacter* me = new Character("me");
+	tmp = src->createMateria("ICE");
+	bob->equip(tmp);
+	tmp = src->createMateria("CURE");
+	bob->equip(tmp);
+	tmp = src->createMateria("ICE");
+	bob->equip(tmp);
 
-	AMateria* tmp;
-	tmp = src->createMateria("ice");
-	me->equip(tmp);
-	tmp = src->createMateria("cure");
-	me->equip(tmp);
+	bob->use(0, *bob);
+	bob->use(1, *bob);
+	bob->use(2, *bob);
+	bob->use(3, *bob);
 
-	ICharacter* bob = new Character("bob");
+	bob->unequip(1);
+	
+	bob->use(0, *bob);
+	bob->use(1, *bob);
+	bob->use(2, *bob);
 
-	me->use(0, *bob);
-	me->use(1, *bob);
+	src->getMemory();
 
-	delete bob;
-	delete me;
 	delete src;
-
+	delete bob;
 	return 0;
 }
+
+// int main() {
+// 	IMateriaSource* src = new MateriaSource();
+// 	src->learnMateria(new Ice());
+// 	src->learnMateria(new Cure());
+
+// 	ICharacter* me = new Character("me");
+
+// 	AMateria* tmp;
+// 	tmp = src->createMateria("ice");
+// 	me->equip(tmp);
+// 	tmp = src->createMateria("cure");
+// 	me->equip(tmp);
+
+// 	ICharacter* bob = new Character("bob");
+
+// 	me->use(0, *bob);
+// 	me->use(1, *bob);
+
+// 	delete bob;
+// 	delete me;
+// 	delete src;
+
+// 	return 0;
+// }

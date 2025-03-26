@@ -12,11 +12,13 @@
 
 #include "Ice.hpp"
 
-Ice::Ice() : AMateria("Ice") {
+Ice::Ice() : AMateria::AMateria("Ice") {
 	std::cout << "Ice default constructor called" << std::endl;
+	this->type = AMateria::type;
 }
 
-Ice::Ice(const Ice& other) : AMateria("Ice") {
+Ice::Ice(const Ice& other) : AMateria::AMateria("Ice") {
+	std::cout << "Ice copy constructor called" << std::endl;
 	*this = other;
 }
 
@@ -26,14 +28,14 @@ Ice::~Ice() {
 
 Ice& Ice::operator=(const Ice& other) {
 	if (this != &other) {
-		//
+		this->type = other.type;
 	}
 	return *this;
 }
 
 // returns a pointer to AMateria - a pointer to an inventory slot?
 AMateria* Ice::clone() const {
-	
+	return new Ice();
 }
 
 void Ice::use(ICharacter& target) {

@@ -18,14 +18,18 @@ ICharacter::~ICharacter() {
 	std::cout << "ICharacter destructor called" << std::endl;
 }
 
-Character::Character() : name("default") {
+Character::Character() : name("default"), inventory_count(0) {
 	std::cout << "Character default constructor called" << std::endl;
-	this->inventory[4] = {};
+	for (int i = 0; i < 4; i++) {
+		this->inventory[i] = NULL;
+	}
 }
 
 Character::Character(std::string name) : name(name) {
 	std::cout << "Character param constructor called" << std::endl;
-	this->inventory[4] = {};
+	for (int i = 0; i < 4; i++) {
+		this->inventory[i] = NULL;
+	}
 }
 
 Character::Character(const Character& other) {
@@ -66,13 +70,9 @@ void Character::equip(AMateria* m) {
 		std::cout << "Inventory full" << std::endl;
 		return ;
 	}
-	int i = 0;
-	if (inventory[i] == NULL) {
-		while (inventory[i] != NULL)
-			i++;
-		inventory[i] = m;
-		inventory_count++;
-	}
+
+	this->inventory[inventory_count] = m;
+	inventory_count++;
 }
 
 // incomplete - still need to figure out how to SAVE THE MATERIA ADDRESSES
@@ -85,6 +85,8 @@ void Character::unequip(int idx) {
 	while (floor[i] != NULL)
 		i++;
 	floor[i] = inventory[idx];
+	inventory[idx] = NULL;
+	inventory_count--;
 	std::cout << "Item has dropped on the floor" << std::endl;
 }
 
