@@ -24,6 +24,7 @@ class Zombie {
 		Zombie();
 		~Zombie();
 
+		// void announce(int *i);
 		void announce();
 		void setName(std::string name);
 };
