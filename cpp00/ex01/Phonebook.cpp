@@ -82,9 +82,7 @@ void PhoneBook::DisplayContact() {
 	std::string index;
 
 	std::cout << "Enter index: ";
-	std::cin >> index;
-
-	std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+	std::getline(std::cin, index);
 
 	if (index.length() == 1 && index[0] >= '1' && index[0] <= '8') {
 		int i = index[0] - '1';
