@@ -21,10 +21,12 @@ int main() {
 	std::cout << "The memory address:\n";
 	std::cout << &brain << std::endl;
 	std::cout << stringPTR << std::endl;
+	std::cout << &stringPTR << std::endl; // address of ptr is different
 	std::cout << &stringREF << std::endl;
 
 	std::cout << "\nThe values held in each variable:\n";
 	std::cout << brain << std::endl;
 	std::cout << *stringPTR << std::endl;
+	std::cout << stringPTR << std::endl; // value of ptr is the memory addr to the string
 	std::cout << stringREF << std::endl;
 }
