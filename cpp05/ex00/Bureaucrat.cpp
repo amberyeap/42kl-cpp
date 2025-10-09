@@ -31,8 +31,7 @@ Bureaucrat::~Bureaucrat() {
 
 }
 
-Bureaucrat::Bureaucrat(const Bureaucrat& copy) {
-	*this = copy;
+Bureaucrat::Bureaucrat(const Bureaucrat& copy) : _name(copy._name), _grade(copy._grade) {
 }
 
 Bureaucrat& Bureaucrat::operator=(const Bureaucrat& copy) {
