@@ -6,7 +6,7 @@
 /*   By: ayeap <ayeap@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/10 02:18:14 by ayeap             #+#    #+#             */
-/*   Updated: 2025/10/10 02:18:14 by ayeap            ###   ########.fr       */
+/*   Updated: 2026/05/03 01:03:22 by ayeap            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,12 +41,12 @@ class Form {
 
 	class GradeTooHighException : public std::exception {
 		public:
-			virtual const char *what() const throw();
+			const char *what() const throw();
 	};
 
 	class GradeTooLowException : public std::exception {
 		public:
-			virtual const char *what() const throw();
+			const char *what() const throw();
 	};
 };
 
