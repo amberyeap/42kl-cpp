@@ -6,7 +6,7 @@
 /*   By: ayeap <ayeap@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/25 19:16:13 by ayeap             #+#    #+#             */
-/*   Updated: 2026/05/04 21:05:05 by ayeap            ###   ########.fr       */
+/*   Updated: 2026/05/05 01:52:30 by ayeap            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,9 +85,9 @@ void Bureaucrat::signForm(AForm& form) {
 void Bureaucrat::executeForm(AForm const& form) const {
 	try {
 		form.execute(*this);
-		std::cout << _name << " executed " << form << std::endl;
+		std::cout << _name << " executed " << form.getName() << std::endl;
 	} catch (std::exception &e) {
-		std::cout << _name << " failed to execute " << form << " because " << e.what() << std::endl;
+		std::cout << _name << " failed to execute " << form.getName() << " because " << e.what() << std::endl;
 	}
 }
 
