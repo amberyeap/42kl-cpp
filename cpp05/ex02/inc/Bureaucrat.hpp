@@ -6,7 +6,7 @@
 /*   By: ayeap <ayeap@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/25 19:16:10 by ayeap             #+#    #+#             */
-/*   Updated: 2025/09/25 19:16:10 by ayeap            ###   ########.fr       */
+/*   Updated: 2026/05/04 13:51:32 by ayeap            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,12 +35,12 @@ class Bureaucrat {
 
 		class GradeTooHighException : public std::exception {
 			public:
-				virtual const char* what() const throw();
+				const char* what() const throw();
 		};
 
 		class GradeTooLowException : public std::exception {
 			public:
-				virtual const char* what() const throw();
+				const char* what() const throw();
 		};
 };
 
