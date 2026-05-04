@@ -26,7 +26,7 @@ class AForm {
 
 	public:
 		AForm(); // default constructor
-		~AForm(); // destructor
+		virtual ~AForm(); // destructor
 		AForm(std::string name, int gradeToSign, int gradeToExecute); // param constructor
 		AForm(const AForm& copy); // copy constructor
 		AForm& operator=(const AForm& copy); // assignment operator
