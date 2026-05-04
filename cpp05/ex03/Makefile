@@ -32,7 +32,7 @@ $(NAME): $(OBJ)
 $(OBJ_PATH):
 	mkdir $(OBJ_PATH)
 
-$(OBJ_PATH)/%.o: $(SRC_PATH)/%.cpp | $(OBJ_PATH)
+$(OBJ_PATH)/%.o: $(SRC_PATH)/%.cpp $(INC_PATH)/*.hpp | $(OBJ_PATH)
 	$(CC) $(CFLAGS) -I $(INC_PATH) -c $< -o $@
 
 clean:
