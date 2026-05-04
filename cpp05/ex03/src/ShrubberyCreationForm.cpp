@@ -6,7 +6,7 @@
 /*   By: ayeap <ayeap@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/04 15:20:59 by ayeap             #+#    #+#             */
-/*   Updated: 2026/05/04 21:01:32 by ayeap            ###   ########.fr       */
+/*   Updated: 2026/05/05 01:57:35 by ayeap            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ ShrubberyCreationForm::~ShrubberyCreationForm() {}
 void ShrubberyCreationForm::execute(Bureaucrat const& executor) const {
 	checkForm(executor);
 
-	std::ofstream file((_target + ".txt").c_str());
+	std::ofstream file((_target + "_shrubbery").c_str());
 	file << "   .vVv.Vv." << std::endl;
 	file << "  vVvVvVvVv" << std::endl;
 	file << "  VvVvVvVvV" << std::endl;
