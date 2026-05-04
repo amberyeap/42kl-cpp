@@ -40,7 +40,7 @@ clean:
 
 fclean: clean
 	$(RM) $(NAME)
-	$(RM) $(wildcard *.txt)
+	$(RM) $(wildcard *_shrubbery)
 
 re: fclean all
 
