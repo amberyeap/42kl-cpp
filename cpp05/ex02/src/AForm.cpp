@@ -6,7 +6,7 @@
 /*   By: ayeap <ayeap@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/10 02:18:06 by ayeap             #+#    #+#             */
-/*   Updated: 2026/05/04 19:08:30 by ayeap            ###   ########.fr       */
+/*   Updated: 2026/05/05 01:53:46 by ayeap            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,11 +62,11 @@ void AForm::beSigned(Bureaucrat& b) {
 }
 
 void AForm::checkForm(Bureaucrat const& executor) const {
+	if (getSignedStatus() == false)
+		throw AForm::FormNotSigned();
 	if (executor.getGrade() > this->getGradeToExecute()) {
 		throw GradeTooLowException();
 	}
-	if (getSignedStatus() == false)
-		throw AForm::FormNotSigned();
 }
 
 const char* AForm::FormNotSigned::what() const throw() {
