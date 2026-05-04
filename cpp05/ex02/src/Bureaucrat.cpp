@@ -6,7 +6,7 @@
 /*   By: ayeap <ayeap@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/25 19:16:13 by ayeap             #+#    #+#             */
-/*   Updated: 2025/09/25 19:16:13 by ayeap            ###   ########.fr       */
+/*   Updated: 2026/05/04 21:05:05 by ayeap            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,25 @@ void Bureaucrat::decrementGrade() {
 		_grade++;
 
 	// std::cout << "Bureaucrat " << _name << "'s new grade is " << _grade << std::endl;
+}
+
+void Bureaucrat::signForm(AForm& form) {
+	try {
+		form.beSigned(*this);
+		std::cout << _name << " signed " << form.getName() << std::endl;
+	} catch (std::exception& e) {
+		std::cout << _name << " couldn't sign " << form.getName() << " because " << e.what() << std::endl;
+	}
+}
+
+
+void Bureaucrat::executeForm(AForm const& form) const {
+	try {
+		form.execute(*this);
+		std::cout << _name << " executed " << form << std::endl;
+	} catch (std::exception &e) {
+		std::cout << _name << " failed to execute " << form << " because " << e.what() << std::endl;
+	}
 }
 
 const char* Bureaucrat::GradeTooHighException::what() const throw() {

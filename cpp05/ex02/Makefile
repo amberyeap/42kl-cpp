@@ -21,19 +21,26 @@ SRC_PATH = src
 INC_PATH = inc
 OBJ_PATH = obj
 
-SRC = $(wildcard *.cpp)
-OBJ = $(SRC:.cpp=.o)
+SRC = $(wildcard $(SRC_PATH)/*.cpp)
+OBJ = $(SRC:$(SRC_PATH)/%.cpp=$(OBJ_PATH)/%.o)
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
+	$(CC) $(CFLAGS) -I $(INC_PATH) $(OBJ) -o $(NAME)
+
+$(OBJ_PATH):
+	mkdir $(OBJ_PATH)
+
+$(OBJ_PATH)/%.o: $(SRC_PATH)/%.cpp | $(OBJ_PATH)
+	$(CC) $(CFLAGS) -I $(INC_PATH) -c $< -o $@
 
 clean:
-	$(RM) $(OBJ)
+	$(RM) $(OBJ_PATH)
 
 fclean: clean
 	$(RM) $(NAME)
+	$(RM) $(wildcard *.txt)
 
 re: fclean all
 
