@@ -38,10 +38,12 @@ static eType detectType(const std::string& str) {
 void printConvert(double s) {
 	// prints char
 	std::cout << "char: ";
-	if ((s > 31 && s < 127) && std::isprint(static_cast<int>(s)))
-		std::cout << "'" << static_cast<char>(s) << "'" << std::endl;
-	else
+	if (s < 0 || s > 127)
+		std::cout << "impossible" << std::endl;
+	else if (!std::isprint(static_cast<int>(s)))
 		std::cout << "Non displayable" << std::endl;
+	else
+		std::cout << "'" << static_cast<char>(s) << "'" << std::endl;
 
 	// prints int
 	std::cout << "int: ";
@@ -93,7 +95,7 @@ void ScalarConverter::convert(const std::string& str) {
 	if (type == CHAR)
 		s = static_cast<double>(str[0]);
 	else if (type == INT)
-		s = static_cast<double>(std::atoi(str.c_str()));
+		s = static_cast<double>(std::atol(str.c_str()));
 	else if (type == FLOAT)
 		s = static_cast<double>(std::atof(str.c_str()));
 	else
