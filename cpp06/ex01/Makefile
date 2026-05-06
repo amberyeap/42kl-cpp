@@ -10,18 +10,19 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME = convert
+NAME = serialize
 
 CC = c++
 CFLAGS = -Wall -Werror -Wextra -std=c++98
 
-SRC = main.cpp Bureaucrat.cpp
+SRC = $(wildcard *.cpp)
 OBJ = $(SRC:.cpp=.o)
+INC = $(wildcard *.hpp)
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
+	$(CC) $(CFLAGS) $(INC) $(OBJ) -o $(NAME)
 
 %.o: %.cpp
 	$(CC) $(CFLAGS) -c $< -o $@
