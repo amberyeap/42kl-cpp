@@ -15,6 +15,11 @@
 
 #include <iostream>
 #include <string>
+#include <cctype> // for isdigit()
+#include <sstream>
+#include <iomanip>
+#include <cstdlib>
+#include <climits>
 
 class ScalarConverter {
 	private:
