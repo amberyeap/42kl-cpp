@@ -58,4 +58,30 @@ void ScalarConverter::convert(const std::string& str) {
 		return;
 	}
 
+	double s;
+
+	if (type == CHAR)
+		s = atof(str.c_str());
+	else if (type == INT)
+		s = atoi(str.c_str());
+	else if (type == FLOAT)
+		s = atof(str.c_str());
+
+	// prints char
+	std::cout << "char: ";
+	if (s > 31 && s < 127)
+		std::cout << s << std::endl;
+	else
+		std::cout << "Non displayable" << std::endl;
+
+	// prints int
+	std::cout << "int: ";
+	if (s < INT_MIN || s > INT_MAX)
+		std::cout << "impossible" << std::endl;
+	else
+		std::cout << static_cast<int>(s) << std::endl;
+
+	// prints float
+
+	// prints double
 }
