@@ -16,9 +16,8 @@ int main() {
 	std::cout << "[TESTING CHAR]" << std::endl;
 	ScalarConverter::convert("a");
 	ScalarConverter::convert("Z");
-	ScalarConverter::convert(" "); // non printable
-
-	std::cout << std::endl;
+	ScalarConverter::convert(" ");
+	ScalarConverter::convert("\0"); // non printable
 
 	std::cout << "[TESTING INT]" << std::endl;
 	ScalarConverter::convert("0");
@@ -29,22 +28,16 @@ int main() {
 	ScalarConverter::convert("2147483647"); //INT MAX
 	ScalarConverter::convert("2147483648"); // overflow
 
-	std::cout << std::endl; 
-
 	std::cout << "[TESTING FLOAT]" << std::endl;
 	ScalarConverter::convert("0.0f");
 	ScalarConverter::convert("42.0f");
 	ScalarConverter::convert("-42.5f");
 	ScalarConverter::convert("42.9999f");
 
-	std::cout << std::endl;
-
 	std::cout << "[TESTING DOUBLE]" << std::endl;
 	ScalarConverter::convert("0.0");
 	ScalarConverter::convert("42.0");
 	ScalarConverter::convert("-42.5");
-
-	std::cout << std::endl;
 
 	std::cout << "[TESTING PSUEDO LITERAL]" << std::endl;
 	ScalarConverter::convert("nan");
