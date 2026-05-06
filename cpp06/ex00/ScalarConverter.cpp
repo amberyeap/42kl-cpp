@@ -69,8 +69,8 @@ void ScalarConverter::convert(const std::string& str) {
 
 	// prints char
 	std::cout << "char: ";
-	if (s > 31 && s < 127)
-		std::cout << s << std::endl;
+	if ((s > 31 && s < 127) && std::isprint(static_cast<int>(s)))
+		std::cout << "'" << static_cast<char>(s) << "'" << std::endl;
 	else
 		std::cout << "Non displayable" << std::endl;
 
@@ -82,6 +82,12 @@ void ScalarConverter::convert(const std::string& str) {
 		std::cout << static_cast<int>(s) << std::endl;
 
 	// prints float
+	std::cout << "float: ";
+	std::cout << std::fixed << std::setprecision(1) << s;
+	std::cout << "f" << std::endl;
 
 	// prints double
+	std::cout << "double: ";
+	std::cout << std::fixed << std::setprecision(1) << s << std::endl;
+
 }
