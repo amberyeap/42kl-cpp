@@ -16,7 +16,7 @@ int main() {
 	std::cout << "[TESTING CHAR]" << std::endl;
 	ScalarConverter::convert("a");
 	ScalarConverter::convert("Z");
-	ScalarConverter::convert("\n"); // non printable
+	ScalarConverter::convert(" "); // non printable
 
 	std::cout << std::endl;
 
