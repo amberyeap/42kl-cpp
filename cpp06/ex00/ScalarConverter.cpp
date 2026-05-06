@@ -55,17 +55,20 @@ void ScalarConverter::convert(const std::string& str) {
 			std::cout << "float: -inff" << std::endl;
 			std::cout << "double: -inf" << std::endl;
 		}
+		std::cout << std::endl;
+
 		return;
 	}
 
 	double s;
-
 	if (type == CHAR)
-		s = atof(str.c_str());
+		s = static_cast<double>(str[0]);
 	else if (type == INT)
-		s = atoi(str.c_str());
+		s = static_cast<double>(std::atoi(str.c_str()));
 	else if (type == FLOAT)
-		s = atof(str.c_str());
+		s = static_cast<double>(std::atof(str.c_str()));
+	else
+		s = std::atof(str.c_str());
 
 	// prints char
 	std::cout << "char: ";
@@ -89,5 +92,7 @@ void ScalarConverter::convert(const std::string& str) {
 	// prints double
 	std::cout << "double: ";
 	std::cout << std::fixed << std::setprecision(1) << s << std::endl;
+
+	std::cout << std::endl;
 
 }
