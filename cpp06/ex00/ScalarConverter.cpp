@@ -35,10 +35,39 @@ static eType detectType(const std::string& str) {
 		return INT;
 }
 
+void printConvert(double s) {
+	// prints char
+	std::cout << "char: ";
+	if ((s > 31 && s < 127) && std::isprint(static_cast<int>(s)))
+		std::cout << "'" << static_cast<char>(s) << "'" << std::endl;
+	else
+		std::cout << "Non displayable" << std::endl;
+
+	// prints int
+	std::cout << "int: ";
+	if (s < INT_MIN || s > INT_MAX)
+		std::cout << "impossible" << std::endl;
+	else
+		std::cout << static_cast<int>(s) << std::endl;
+
+	// prints float
+	std::cout << "float: ";
+	std::cout << std::fixed << std::setprecision(1) << s;
+	std::cout << "f" << std::endl;
+
+	// prints double
+	std::cout << "double: ";
+	std::cout << std::fixed << std::setprecision(1) << s << std::endl;
+
+	std::cout << std::endl;
+}
+
 void ScalarConverter::convert(const std::string& str) {
 
 	//detect the type
 	eType type = detectType(str);
+
+	std::cout << "Original String: " << str << std::endl;
 
 	if (type == SPECIAL) {
 		std::cout << "char: impossible" << std::endl;
@@ -70,29 +99,5 @@ void ScalarConverter::convert(const std::string& str) {
 	else
 		s = std::atof(str.c_str());
 
-	// prints char
-	std::cout << "char: ";
-	if ((s > 31 && s < 127) && std::isprint(static_cast<int>(s)))
-		std::cout << "'" << static_cast<char>(s) << "'" << std::endl;
-	else
-		std::cout << "Non displayable" << std::endl;
-
-	// prints int
-	std::cout << "int: ";
-	if (s < INT_MIN || s > INT_MAX)
-		std::cout << "impossible" << std::endl;
-	else
-		std::cout << static_cast<int>(s) << std::endl;
-
-	// prints float
-	std::cout << "float: ";
-	std::cout << std::fixed << std::setprecision(1) << s;
-	std::cout << "f" << std::endl;
-
-	// prints double
-	std::cout << "double: ";
-	std::cout << std::fixed << std::setprecision(1) << s << std::endl;
-
-	std::cout << std::endl;
-
+	printConvert(s);
 }
