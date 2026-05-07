@@ -32,31 +32,48 @@ void identify(Base* p) {
 }
 
 void identify(Base& p) {
+	// cannot add and print e.what() when an exception is caught
+	// -> seems to get corrupted and prints unnecessary messages
+
 	try {
 		dynamic_cast<A&>(p);
 		std::cout << "A" << std::endl;
 		return;
-	} catch (std::exception& e) {
-		std::cout << e.what() << std::endl;
-	}
+	} catch (std::exception& e) {}
 
 	try {
 		dynamic_cast<B&>(p);
 		std::cout << "B" << std::endl;
 		return ;
-	} catch (std::exception& e) {
-		std::cout << e.what() << std::endl;
-	}
+	} catch (std::exception& e) {}
 	
 	try {
 		dynamic_cast<C&>(p);
 		std::cout << "C" << std::endl;
 		return;
-	} catch (std::exception& e) {
-		std::cout << e.what() << std::endl;
-	}
+	} catch (std::exception& e) {}
+
 }
 
 int main() {
-	
+	// needed to create a new seed so that the order is randomised
+	// rand() doesn't actually generate random numbers, so without the seed,
+	// the same sequence will always be used
+	std::srand(std::time(NULL));
+
+	for (int i = 1; i < 6; i++) {
+		std::cout << "Round: " << i << std::endl;
+
+		Base* test = generate();
+		std::cout << "Pointer: ";
+		identify(test);
+		std::cout << "Reference: ";
+		identify(*test);
+
+		std::cout << std::endl;
+
+		delete test;
+	}
+
+	return 0;
 }
