@@ -32,7 +32,7 @@ class Array {
 		}
 
 		~Array() {
-			delete[] _data;
+			delete[] _arr;
 		}
 
 		Array& operator=(const Array& other) {
@@ -45,7 +45,7 @@ class Array {
 
 		T& operator[](unsigned int i) {
 			if (i >= _size)
-				throw std::out_of_range;
+				throw std::out_of_range("Index out of bounds");
 			return (_arr[i]);
 		}
 
