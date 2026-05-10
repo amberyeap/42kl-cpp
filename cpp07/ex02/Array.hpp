@@ -48,6 +48,10 @@ class Array {
 				throw std::out_of_range;
 			return (_arr[i]);
 		}
+
+		unsigned int size() {
+			return this->_size;
+		}
 };
 
 #endif
