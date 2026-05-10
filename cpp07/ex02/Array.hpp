@@ -23,11 +23,11 @@ class Array {
 		unsigned int _size;
 
 	public:
-		Array() : _arr(0), _size(0) {}
+		Array() : _arr(NULL), _size(0) {}
 
 		Array(unsigned int n) : _arr(new T[n]), _size(n) {}
 
-		Array(const Array& other) {
+		Array(const Array& other) : _arr(NULL), _size(0) {
 			*this = other;
 		}
 
@@ -37,8 +37,11 @@ class Array {
 
 		Array& operator=(const Array& other) {
 			if (this != &other) {
-				this->_arr = other._arr;
+				delete[] _arr;
 				this->_size = other._size;
+				this->_arr = new T[_size];
+				for (unsigned int i = 0; i < _size; i++)
+					_arr[i] = other._arr[i];
 			}
 			return *this;
 		}
