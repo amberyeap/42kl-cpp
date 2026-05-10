@@ -46,6 +46,7 @@ class Array {
 		T& operator[](unsigned int i) {
 			if (i >= _size)
 				throw std::out_of_range;
+			return (_arr[i]);
 		}
 };
 
