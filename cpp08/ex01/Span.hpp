@@ -31,7 +31,7 @@ class Span {
 
 		Span& operator=(const Span& other);
 
-		void addNumber(unsigned int n);
+		void addNumber(int n);
 
 		template <typename Container>
 		void addMultipleNums(const Container& cont);
