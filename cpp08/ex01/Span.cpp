@@ -33,3 +33,19 @@ void Span::addNumber(unsigned int n) {
 		throw Span::ExceedLimit();
 	_data.push_back(n);
 }
+
+unsigned int Span::shortestSpan() {
+	if (_data.size() < 2)
+		throw Span::InsufficientNums();
+	std::vector<int> sorted = _data;
+	std::sort(sorted.begin(), sorted.end());
+	return sorted[1] - sorted[0];
+}
+
+unsigned int Span::longestSpan() {
+	if (_data.size() < 2)
+		throw Span::InsufficientNums();
+	std::vector<int> sorted = _data;
+	std::sort(sorted.begin(), sorted.end());
+	return sorted[sorted.size() - 1] - sorted[0];
+}
