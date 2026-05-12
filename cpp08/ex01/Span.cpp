@@ -39,7 +39,13 @@ int Span::shortestSpan() {
 		throw Span::InsufficientNumsException();
 	std::vector<int> sorted = _data;
 	std::sort(sorted.begin(), sorted.end());
-	return sorted[1] - sorted[0];
+
+	int min = sorted[1] - sorted[0];
+	for (unsigned int i = 1; i < sorted.size() - 1; i++) {
+		if (sorted[i + 1] - sorted[i] < min)
+			min = sorted[i + 1] - sorted[i];
+	}
+	return min;
 }
 
 int Span::longestSpan() {
