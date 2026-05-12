@@ -31,7 +31,9 @@ class Span {
 		Span& operator=(const Span& other);
 
 		void addNumber(unsigned int n);
-		void addMultipleNums(unsigned int arr[]);
+
+		template <typename Container>
+		void addMultipleNums(const Container& cont);
 
 		unsigned int shortestSpan();
 		unsigned int longestSpan();
@@ -42,6 +44,13 @@ class Span {
 					return "Limit exceeded. Cannot add new number.";
 				}
 		}
+};
+
+template <typename Container>
+void Span::addMultipleNums(const Container& cont) {
+	if (_data.size() + cont.size() > _maxN)
+		throw Span::ExceedLimit();
+	_data.insert(_data.end(), cont.begin(), cont.end());
 }
 
 #endif

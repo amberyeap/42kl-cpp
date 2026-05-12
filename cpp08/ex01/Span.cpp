@@ -33,10 +33,3 @@ void Span::addNumber(unsigned int n) {
 		throw Span::ExceedLimit();
 	_data.push_back(n);
 }
-
-// how to make it accept other container types?
-void Span::addMultipleNums(std::vector<int> vect) {
-	if (_data.size() + vect.size() > _maxN)
-		throw Span::ExceedLimit();
-	_data.insert(_data.end(), vect.begin(), vect.end());
-}
