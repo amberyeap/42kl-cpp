@@ -12,9 +12,9 @@
 
 #include "Span.hpp"
 
-Span::Span() : _maxN(0), _data(NULL) {}
+Span::Span() : _maxN(0) {}
 
-Span::Span(unsigned int N) : _maxN(N), _data(NULL) {}
+Span::Span(unsigned int N) : _maxN(N) {}
 
 Span::Span(const Span& other) : _maxN(other._maxN), _data(other._data) {}
 
@@ -28,13 +28,13 @@ Span& Span::operator=(const Span& other) {
 	return *this;
 }
 
-void Span::addNumber(unsigned int n) {
+void Span::addNumber(int n) {
 	if (_data.size() >= _maxN)
 		throw Span::ExceedLimit();
 	_data.push_back(n);
 }
 
-unsigned int Span::shortestSpan() {
+int Span::shortestSpan() {
 	if (_data.size() < 2)
 		throw Span::InsufficientNums();
 	std::vector<int> sorted = _data;
@@ -42,7 +42,7 @@ unsigned int Span::shortestSpan() {
 	return sorted[1] - sorted[0];
 }
 
-unsigned int Span::longestSpan() {
+int Span::longestSpan() {
 	if (_data.size() < 2)
 		throw Span::InsufficientNums();
 	std::vector<int> sorted = _data;

@@ -16,6 +16,7 @@
 #include <stdexcept>
 #include <iostream>
 #include <vector>
+#include <algorithm>
 
 class Span {
 	private:
@@ -35,8 +36,8 @@ class Span {
 		template <typename Container>
 		void addMultipleNums(const Container& cont);
 
-		unsigned int shortestSpan();
-		unsigned int longestSpan();
+		int shortestSpan();
+		int longestSpan();
 
 		class ExceedLimit : public std::exception {
 			public:
@@ -50,7 +51,7 @@ class Span {
 				const char* what() const throw() {
 					return "Not enough numbers.";
 				}
-		}
+		};
 };
 
 template <typename Container>
