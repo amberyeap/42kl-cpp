@@ -30,13 +30,13 @@ Span& Span::operator=(const Span& other) {
 
 void Span::addNumber(int n) {
 	if (_data.size() >= _maxN)
-		throw Span::ExceedLimit();
+		throw Span::ExceedLimitException();
 	_data.push_back(n);
 }
 
 int Span::shortestSpan() {
 	if (_data.size() < 2)
-		throw Span::InsufficientNums();
+		throw Span::InsufficientNumsException();
 	std::vector<int> sorted = _data;
 	std::sort(sorted.begin(), sorted.end());
 	return sorted[1] - sorted[0];
@@ -44,7 +44,7 @@ int Span::shortestSpan() {
 
 int Span::longestSpan() {
 	if (_data.size() < 2)
-		throw Span::InsufficientNums();
+		throw Span::InsufficientNumsException();
 	std::vector<int> sorted = _data;
 	std::sort(sorted.begin(), sorted.end());
 	return sorted[sorted.size() - 1] - sorted[0];
