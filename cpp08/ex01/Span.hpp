@@ -43,6 +43,13 @@ class Span {
 				const char* what() const throw() {
 					return "Limit exceeded. Cannot add new number.";
 				}
+		};
+
+		class InsufficientNums : public std::exception {
+			public:
+				const char* what() const throw() {
+					return "Not enough numbers.";
+				}
 		}
 };
 
