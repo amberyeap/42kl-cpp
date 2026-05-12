@@ -57,7 +57,7 @@ class Span {
 template <typename Container>
 void Span::addMultipleNums(const Container& cont) {
 	if (_data.size() + cont.size() > _maxN)
-		throw Span::ExceedLimit();
+		throw Span::ExceedLimitException();
 	_data.insert(_data.end(), cont.begin(), cont.end());
 }
 
