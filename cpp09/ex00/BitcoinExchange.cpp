@@ -126,7 +126,7 @@ void BitcoinExchange::parseInput(const std::string& filename) {
 		}
 
 		float newValue = atof(value.c_str());
-		if (newValue < 1) {
+		if (newValue < 0) {
 			std::cerr << "Error: not a positive number" << std::endl;
 			continue;
 		}
@@ -136,7 +136,9 @@ void BitcoinExchange::parseInput(const std::string& filename) {
 			continue;
 		}
 
-		int finalValue = getRate(date);
-		std::cout << date << " => " << value << " = " << finalValue << std::endl;
+		float rate = getRate(date);
+		if (rate < 0)
+			continue;
+		std::cout << date << " => " << value << " = " << (rate * newValue) << std::endl;
 	}
 }
