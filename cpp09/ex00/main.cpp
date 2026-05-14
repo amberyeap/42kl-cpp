@@ -14,29 +14,25 @@
 
 int	main(int argc, char **argv)
 {
-	(void)argc;
-	(void)argv;
-	// if (argc != 2)
-	// {
-	// 	std::cerr << "Usage: ./btc <input_file>" << std::endl;
-	// 	return (1);
-	// }
+	if (argc != 2)
+	{
+		std::cerr << "Error: could not open file." << std::endl;
+		std::cerr << "Usage: ./btc <input_file>" << std::endl;
+		return (1);
+	}
 
-	// try
-	// {
-	// 	BitcoinExchange btc;
+	try
+	{
+		BitcoinExchange btc;
 
-	// 	btc.loadDatabase("data.csv");
-	// 	btc.processInput(argv[1]);
-	// }
-	// catch (const std::exception &e)
-	// {
-	// 	std::cerr << e.what() << std::endl;
-	// 	return (1);
-	// }
+		btc.parseCsvFile();
+		btc.parseInput(argv[1]);
+	}
+	catch (const std::exception &e)
+	{
+		std::cerr << e.what() << std::endl;
+		return (1);
+	}
 
-	// return (0);
-
-	BitcoinExchange btc;
-
+	return (0);
 }
