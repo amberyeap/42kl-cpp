@@ -24,10 +24,10 @@ class BitcoinExchange {
 	private:
 		std::map<std::string, float> _dataMap;
 
-		BitcoinExchange(const BitcoinExchange& other);
-
-	public:
+		
+		public:
 		BitcoinExchange();
+		BitcoinExchange(const BitcoinExchange& other);
 		~BitcoinExchange();
 
 		// BitcoinExchange& operator=(const BitcoinExchange& other);
