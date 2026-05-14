@@ -30,11 +30,12 @@ class BitcoinExchange {
 		BitcoinExchange(const BitcoinExchange& other);
 		~BitcoinExchange();
 
-		// BitcoinExchange& operator=(const BitcoinExchange& other);
+		BitcoinExchange& operator=(const BitcoinExchange& other);
 
 		void parseCsvFile();
 		void displayMap(const std::map<std::string, float>map);
 		void parseInput(const std::string& file);
+		float getRate(const std::string& date);
 };
 
 #endif
