@@ -139,6 +139,6 @@ void BitcoinExchange::parseInput(const std::string& filename) {
 		float rate = getRate(date);
 		if (rate < 0)
 			continue;
-		std::cout << date << " => " << value << " = " << (rate * newValue) << std::endl;
+		std::cout << date << " => " << newValue << " = " << (rate * newValue) << std::endl;
 	}
 }
