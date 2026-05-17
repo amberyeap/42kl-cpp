@@ -33,5 +33,10 @@ int main(int argc, char* argv[]) {
         deq.push_back(num);
     }
 
+    std::cout << "Before: ";
+    for (size_t i = 0; i < vec.size(); i++)
+        std::cout << vec[i] << " ";
+    std::cout << std::endl;
+
     return 0;
 }
