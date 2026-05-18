@@ -70,7 +70,7 @@ int main(int argc, char* argv[]) {
 	// multiply by 1000000 -> get microseconds
 	double timeVec = static_cast<double>(endVec - startVec) / CLOCKS_PER_SEC * 1000000;
 
-	std::cout << "Time to process range of " << vec.size()
+	std::cout << "Time to process a range of " << vec.size()
 		<< " elements with std::vector : " << timeVec << "us" << std::endl;
 
     return 0;
