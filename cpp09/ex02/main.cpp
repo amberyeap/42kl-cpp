@@ -61,6 +61,10 @@ int main(int argc, char* argv[]) {
 	merge.sort(vec);
 	std::clock_t endVec = std::clock();
 
+	std::clock_t startDeq = std::clock();
+	merge.sort(deq);
+	std::clock_t endDeq = std::clock();
+
 	std::cout << "After: ";
 	for (size_t i = 0; i < vec.size(); i++)
 		std::cout << vec[i] << " ";
@@ -69,9 +73,12 @@ int main(int argc, char* argv[]) {
 	// CLOCKS_PER_SEC -> get seconds
 	// multiply by 1000000 -> get microseconds
 	double timeVec = static_cast<double>(endVec - startVec) / CLOCKS_PER_SEC * 1000000;
+	double timeDeq = static_cast<double>(endDeq - startDeq) / CLOCKS_PER_SEC * 1000000;
 
 	std::cout << "Time to process a range of " << vec.size()
 		<< " elements with std::vector : " << timeVec << "us" << std::endl;
+	std::cout << "Time to process a range of " << deq.size()
+		<< " elements with std::deque : " << timeDeq << "us" << std::endl;
 
     return 0;
 }
