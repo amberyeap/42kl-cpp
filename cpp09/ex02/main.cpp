@@ -14,8 +14,8 @@ bool isDuplicate(std::vector<int>& vec) {
 			if (vec[i] == vec[j])
 				return true;
 		}
-		return false;
 	}
+	return false;
 }
 
 int main(int argc, char* argv[]) {
