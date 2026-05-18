@@ -1,11 +1,21 @@
 #include "PmergeMe.hpp"
 
-bool isValidInput(const std::string& str) {
+bool isNumber(const std::string& str) {
     for (size_t i = 0; i < str.size(); i++) {
         if (!std::isdigit(str[i]))
             return false;
     }
     return true;
+}
+
+bool isDuplicate(std::vector<int>& vec) {
+	for (size_t i = 0; i < vec.size(); i++) {
+		for (size_t j = i + 1; j < vec.size(); j++) {
+			if (vec[i] == vec[j])
+				return true;
+		}
+		return false;
+	}
 }
 
 int main(int argc, char* argv[]) {
@@ -18,7 +28,7 @@ int main(int argc, char* argv[]) {
     std::deque<int> deq;
 
     for (int i = 1; i < argc; i++) {
-        if (!isValidInput(argv[i])) {
+        if (!isNumber(argv[i])) {
             std::cerr << "Error: invalid input => " << argv[i] << std::endl;
             return 1;
         }
@@ -32,6 +42,11 @@ int main(int argc, char* argv[]) {
         vec.push_back(num);
         deq.push_back(num);
     }
+
+	if (isDuplicate(vec)) {
+		std::cerr << "Error: contains duplicate" << std::endl;
+		return 1;
+	}
 
     std::cout << "Before: ";
     for (size_t i = 0; i < vec.size(); i++)
