@@ -19,21 +19,6 @@ void PmergeMe::sort(std::vector<int>& arr) {
 // use the jacobsthal algo to determine the order of numbers inserted
 // use binaryInsert algo to insert in the proper location
 
-// insert the chosen one into the right spot
-void PmergeMe::binaryInsert(std::vector<int>& arr, int val) {
-	int low = 0;
-	int high = arr.size();
-
-	while (low < high) {
-		int mid = (low + high) / 2;
-		if (arr[mid] < val)
-			low = mid + 1;
-		else
-			high = mid;
-	}
-	arr.insert(arr.begin() + low, val);
-}
-
 std::vector<int> PmergeMe::getJacobsthalOrder(size_t size) {
 	std::vector<int> jacob;
 	jacob.push_back(1);
@@ -67,6 +52,21 @@ std::vector<int> PmergeMe::getJacobsthalOrder(size_t size) {
 	}
 
 	return order;
+}
+
+// insert the chosen one into the right spot
+void PmergeMe::binaryInsert(std::vector<int>& arr, int val) {
+	int low = 0;
+	int high = arr.size();
+
+	while (low < high) {
+		int mid = (low + high) / 2;
+		if (arr[mid] < val)
+			low = mid + 1;
+		else
+			high = mid;
+	}
+	arr.insert(arr.begin() + low, val);
 }
 
 void PmergeMe::fordJohnson(std::vector<int>& arr) {
