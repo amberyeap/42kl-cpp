@@ -15,8 +15,9 @@ class PmergeMe {
 
         PmergeMe& operator=(const PmergeMe& other);
 
-        void sort(std::vector<int>& arr);
-        void sort(std::deque<int>& arr);
+		void binaryInsert(std::vector<int>& arr, int val);
+		std::vector<int> getJacobsthalOrder(size_t size);
+		void fordJohnson(std::vector<int>& arr);
 };
 
 #endif
