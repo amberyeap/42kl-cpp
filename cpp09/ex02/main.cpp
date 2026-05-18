@@ -53,5 +53,25 @@ int main(int argc, char* argv[]) {
         std::cout << vec[i] << " ";
     std::cout << std::endl;
 
+	// main sort
+	PmergeMe merge;
+
+	// std::clock() returns number of CPU clock ticks
+	std::clock_t startVec = std::clock();
+	merge.sort(vec);
+	std::clock_t endVec = std::clock();
+
+	std::cout << "After: ";
+	for (size_t i = 0; i < vec.size(); i++)
+		std::cout << vec[i] << " ";
+	std::cout << std::endl;
+
+	// CLOCKS_PER_SEC -> get seconds
+	// multiply by 1000000 -> get microseconds
+	double timeVec = static_cast<double>(endVec - startVec) / CLOCKS_PER_SEC * 1000000;
+
+	std::cout << "Time to process range of " << vec.size()
+		<< " elements with std::vector : " << timeVec << "us" << std::endl;
+
     return 0;
 }
