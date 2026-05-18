@@ -11,12 +11,12 @@
 class PmergeMe {
 	private:
 		void binaryInsert(std::vector<int>& arr, int val);
-		std::vector<int> getJacobsthalOrder(size_t size);
 		void fordJohnson(std::vector<int>& arr);
 
-		// void binaryInsert(std::deque<int>& arr, int val);
-		// std::deque<int> getJacobsthalOrder(size_t size);
-		// void fordJohnson(std::deque<int>& arr);
+		void binaryInsert(std::deque<int>& arr, int val);
+		void fordJohnson(std::deque<int>& arr);
+
+		std::vector<int> getJacobsthalOrder(size_t size);
 
     public:
         PmergeMe();
