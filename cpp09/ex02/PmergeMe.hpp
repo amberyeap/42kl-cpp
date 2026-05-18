@@ -6,8 +6,18 @@
 #include <deque>
 #include <cstdlib>
 #include <cctype>
+#include <ctime>
 
 class PmergeMe {
+	private:
+		void binaryInsert(std::vector<int>& arr, int val);
+		std::vector<int> getJacobsthalOrder(size_t size);
+		void fordJohnson(std::vector<int>& arr);
+
+		// void binaryInsert(std::deque<int>& arr, int val);
+		// std::deque<int> getJacobsthalOrder(size_t size);
+		// void fordJohnson(std::deque<int>& arr);
+
     public:
         PmergeMe();
         PmergeMe(const PmergeMe& other);
@@ -15,9 +25,8 @@ class PmergeMe {
 
         PmergeMe& operator=(const PmergeMe& other);
 
-		void binaryInsert(std::vector<int>& arr, int val);
-		std::vector<int> getJacobsthalOrder(size_t size);
-		void fordJohnson(std::vector<int>& arr);
+        void sort(std::vector<int>& arr);
+        void sort(std::deque<int>& arr);
 };
 
 #endif
